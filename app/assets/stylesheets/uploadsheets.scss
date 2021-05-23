@@ -5,4 +5,15 @@
   position: absolute;
   top: 50%;
   left: 30%;
+  border: 2px solid greenyellow;
+  width: 50%;
+  padding: 12px 10px 10px 10px;
+
+  .response-data {
+    padding: 10px;
+    
+    .column.card {
+      padding: 5px;
+  }
+  }
 }

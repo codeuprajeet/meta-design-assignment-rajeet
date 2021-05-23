@@ -4,7 +4,6 @@ module ExcelUploadable
 
   def insert_user(file)
     tempfile = Creek::Book.new  file
-    byebug
     saved_user_count = 0
     failed_user_count = 0
     total_user = 0

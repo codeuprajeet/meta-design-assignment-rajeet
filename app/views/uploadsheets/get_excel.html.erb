@@ -1,26 +1,30 @@
 <div class="upload-sheet">
-  <%= form_tag({:action => :upload_excel}, method: :post,  :multipart => true) do %>
-    <%= file_field_tag 'user_sheet' %>
-    <button type="submit" class="btn btn-primary">Primary</button>
-  <% end %>
-
-  <% if @response.present? %>
-  <div class="column card">
-
-    Total User rows in sheet: <%= @response[:total_user]%>
-    saved Users: <%= @response[:saved_user_count]%>
-    Failed Users Count: <%= @response[:failed_user_count]%>
-  </div>
-    Error In Rows:
-    <% @response[:errors].each do|er|%>
-      row : <%= er[:row]%>
-      sheet Name: sheet Name
-      total errors 
-      <% er[:errrors].each do|er|%>
-        <%= "#{er.type.to_s}" "#{er.attribute.to_s}"%>
-      <% byebug%>
-      <%end%>
-      <br/>
+  <div class="excel-form">
+    <%= form_tag({:action => :upload_excel}, method: :post,  :multipart => true) do %>
+      <%= file_field_tag 'user_sheet' %>
+      <button type="submit" class="btn btn-success">Upload sheet</button>
     <% end %>
+  </div>
+  <% if @response.present? %>
+    <div class="response-data">
+      <div class="column card">
+        Total User rows in sheet: <%= @response[:total_user]%>
+        <br/>
+        saved Users: <%= @response[:saved_user_count]%>
+        <br/>
+        Failed Users Count: <%= @response[:failed_user_count]%>
+      </div>
+      Error In Rows:
+      <br/>
+      <% @response[:errors].each do|er|%>
+        row : <%= er[:row]%>
+        sheet Name: sheet Name
+        total errors 
+        <% er[:errrors].each do|er|%>
+          <%= "#{er.type.to_s}" "#{er.attribute.to_s}"%>
+        <%end%>
+        <br/>
+      <% end %>
+    </div>
   <% end%>
 </div>
