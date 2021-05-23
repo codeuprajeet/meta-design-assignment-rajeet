@@ -18,11 +18,7 @@ module ExcelUploadable
           if user.save
             saved_user_count +=1
           else
-            if sheets.count > 1
-              not_saved_rows << create_row_errors(row_index + 1, tempfile.sheets[sheet_index]&.name, user)
-            else
-              not_saved_rows << { row: row_index + 1, sheet_name: tempfile.sheets[sheet_index]&.name, errors: user.errors }
-            end
+              not_saved_rows << create_row_errors(row_index + 1, sheet&.name, user)
             failed_user_count +=1
           end
         end
