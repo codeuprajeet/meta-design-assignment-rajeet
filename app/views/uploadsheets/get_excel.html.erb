@@ -1,7 +1,7 @@
 <div class="upload-sheet">
   <div class="excel-form">
     <%= form_tag({:action => :upload_excel}, method: :post,  :multipart => true) do %>
-      <%= file_field_tag 'user_sheet' %>
+      <%= file_field_tag 'user_sheet', required: true %>
       <button type="submit" class="btn btn-success">Upload sheet</button>
     <% end %>
   </div>
@@ -17,11 +17,11 @@
       Error In Rows:
       <br/>
       <% @response[:errors].each do|er| %>
-        row : <%= er[:row] %>
-        sheet Name: sheet Name
-        total errors 
+        ROW : <%= er[:row] %>,
+        Sheet Name: <%= er[:sheet_name] %>,
+        Total Errors In Row:
         <% er[:errrors].each do|er| %>
-          <%= "#{er.type.to_s}" "#{er.attribute.to_s}" %>
+          <%= "#{er.type.to_s} " " #{er.attribute.to_s}" %>
         <% end %>
         <br/>
       <% end %>
