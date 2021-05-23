@@ -1,0 +1,62 @@
+<h1> hey </h1>
+    <%= csp_meta_tag %>
+
+<div class="card"> 
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+lorem ipsum
+</div>
+
+<div class="jumbotron text-center">
+  <h1>My First Bootstrap Page</h1>
+  <p>Resize this responsive page to see the effect!</p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Column 1</h3>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 2</h3>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 3</h3>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+</div>
+<form action="/upload_excel"  method="POST" accept=".xlsx">
+  <input type="file" name="excel_data">
+</form>
+<%= form_tag({:action => :upload_excel}, method: :post,  :multipart => true) do %>
+  <%= file_field_tag 'picture' %>
+  <button type="submit" class="btn btn-primary">Primary</button>
+<% end %>
