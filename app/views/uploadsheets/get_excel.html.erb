@@ -16,15 +16,18 @@
       </div>
       Error In Rows:
       <br/>
-      <% @response[:errors].each do|er|%>
-        row : <%= er[:row]%>
+      <% @response[:errors].each do|er| %>
+        row : <%= er[:row] %>
         sheet Name: sheet Name
         total errors 
-        <% er[:errrors].each do|er|%>
-          <%= "#{er.type.to_s}" "#{er.attribute.to_s}"%>
-        <%end%>
+        <% er[:errrors].each do|er| %>
+          <%= "#{er.type.to_s}" "#{er.attribute.to_s}" %>
+        <% end %>
         <br/>
       <% end %>
     </div>
-  <% end%>
+  <% end %>
+  <% if @errors.present? %>
+   <%= @errors %>
+  <% end %>
 </div>
