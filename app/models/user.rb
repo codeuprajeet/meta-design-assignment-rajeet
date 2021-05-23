@@ -1,5 +1,8 @@
 
 class User < ApplicationRecord
-extend ExcelUploadable
+  extend ExcelUploadable
 
+  validates :FirstName, :LastName, presence: true
+  validates :EmailId, email: true
+  
 end
